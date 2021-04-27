@@ -21,6 +21,7 @@ def add(request):
         if form.is_valid():
             task = form.cleaned_data['task']
             request.session['tasks'] += [task]
+            tasks.append(task)
             return HttpResponseRedirect(reverse('task:index'))
 
         else:
